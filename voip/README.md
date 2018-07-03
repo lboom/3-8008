@@ -1,6 +1,6 @@
-## Life without copper
-----------------------
-Unifinshed thoughts on augmenting our BBS plans with internet phones.
+# Life without copper
+---------------------
+Unfinshed thoughts on augmenting our BBS plans with internet phones.
 
 # Bulk providers
 ----------------
