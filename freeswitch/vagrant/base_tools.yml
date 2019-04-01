@@ -1,0 +1,15 @@
+---
+- name: Install dev tools
+  apt:
+    name: "{{ item }}"
+    state: present
+  # XXX will need some audio tools as well
+  with_items:
+    - vim-nox
+    - curl
+    - htop
+
+- name: install vimrc
+  copy:
+    src: src/vimrc
+    dest: /home/vagrant/.vimrc

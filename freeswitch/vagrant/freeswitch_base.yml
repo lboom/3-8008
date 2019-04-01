@@ -1,0 +1,8 @@
+---
+- hosts: freeSwitch
+  become: true
+  tasks:
+    - include: base_tools.yml
+    - include: packages.yml
+    # XXX eventually pre-populate /etc/freeswitch
+    - include: freeswitch.yml
