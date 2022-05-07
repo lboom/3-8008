@@ -1,0 +1,14 @@
+---
+# upgrade system
+- name: apt upgrade
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+# base packages
+- name: useful packages
+  apt:
+    name:
+      - vim-nox
+      - screen
+      - build-essential
