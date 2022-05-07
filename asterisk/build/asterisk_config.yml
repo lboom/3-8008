@@ -1,0 +1,37 @@
+---
+# asterisk install
+- name: install asterisk
+  apt:
+    name:
+      - asterisk
+      - asterisk-dev
+
+# drop asterisk configs into place
+- name: modules conf
+  copy:
+    src: ../src/etc/modules.conf
+    dest: /etc/asterisk/modules.conf
+
+# chan_sccp
+- name: copy sccp
+  copy:
+    src: ../src/chan_sccp-v4.3.3.tar.gz
+    dest: /tmp/chan_sccp-v4.3.3.tar.gz
+
+# why the fuck cant I just unarchive?
+- name: unpack sccp
+  shell:
+    chdir: /tmp
+    cmd: tar xvf chan_sccp-v4.3.3.tar.gz
+
+# build and install sccp
+- name: build sccp
+  shell:
+    chdir: /tmp/chan-sccp-chan-sccp-968caa4
+    cmd: ./configure && make && make install
+
+# reload asterisk
+- name: kick asterisk
+  service:
+    name: asterisk
+    state: restarted
