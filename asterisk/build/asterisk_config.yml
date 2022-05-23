@@ -7,10 +7,19 @@
       - asterisk-dev
 
 # drop asterisk configs into place
+# TODO: clean out the confs, only load modules required
 - name: modules conf
   copy:
     src: ../src/etc/modules.conf
     dest: /etc/asterisk/modules.conf
+- name: sccp conf
+  copy:
+    src: ../src/etc/sccp.conf
+    dest: /etc/asterisk/sccp.conf
+- name: extensions conf
+  copy:
+    src: ../src/etc/extensions.conf
+    dest: /etc/asterisk/extensions.conf
 
 # chan_sccp
 - name: copy sccp
