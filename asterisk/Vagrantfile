@@ -16,6 +16,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.memory = 1024
     config.vm.network "private_network", type: "dhcp", :adapter => 2    
     config.vm.network "forwarded_port", guest: 2000, host: 2000
+    # SCCP voice ports
+    for p in 16384..19384
+      config.vm.network "forwarded_port", guest: p, host: p
+    end
   end
 
 end
